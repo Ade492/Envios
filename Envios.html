@@ -1,0 +1,119 @@
+<!DOCTYPE HTML PUBLIC
+<html>
+    <head>
+        <title>Paquetería</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <script>
+ //esta linea de codigo son las declaracione de variables
+function algoritmo()
+{
+    let costo_por_el_servicio, costo_por_Kilo, paquetes_a_zona_1, paquetes_a_zona_2, paquetes_a_zona_3;
+    let paquetes_a_zona_4, paquetes_a_zona_5, peso_en_Kiloss, total_a_zona_1, total_a_zona_2;
+    let total_a_zona_3, total_a_zona_4, total_a_zona_5, zona;
+    peso_en_Kiloss = parseInt (document.formulario1.peso_en_Kiloss.value);
+    costo_por_Kilos=0;
+    zona = parseInt (document.formulario1.zona.value);
+    //aqui declaramos el costo del kilo y de los kilometros
+    if(zona==1)
+        costo_por_Kilos=2.25*1.5;
+    if(zona==2)
+        costo_por_Kilos=2.25*45;
+    if(zona==3)
+        costo_por_Kilos=2.25*69;
+    if(zona==4)
+        costo_por_Kilos=2.25*26.7;
+    if(zona==5)
+        costo_por_Kilos=2.25*30;
+        // ei el kilo supera los 5000 nos enviara una alerta de entrega rechazada
+    if(peso_en_Kilos>5000)
+    {
+        costo_por_el_servicio=0;
+        alert('Entrega rechazada');
+    }
+    else
+        costo_por_el_servicio=costo_por_Kilos*peso_en_Kiloss;
+    if(peso_en_Kiloss<=5000&&zona==1)
+    {
+        paquetes_a_zona_1=paquetes_a_zona_1+1;
+        total_a_zona_1=total_a_zona_1+costo_por_el_servicio;
+    }
+    if(peso_en_Kiloss<=5000&&zona==2)
+    {
+        paquetes_a_zona_2=paquetes_a_zona_2+1;
+        total_a_zona_2=total_a_zona_2+costo_por_el_servicio;
+    }
+    if(peso_en_Kiloss<=5000&&zona==3)
+    {
+        paquetes_a_zona_3=paquetes_a_zona_3+1;
+        total_a_zona_3=total_a_zona_3+costo_por_el_servicio;
+    }
+    if(peso_en_Kiloss<=5000&&zona==4)
+    {
+        paquetes_a_zona_4=paquetes_a_zona_4+1;
+        total_a_zona_4=total_a_zona_4+costo_por_el_servicio;
+    }
+    if(peso_en_Kiloss<=5000&&zona==5)
+    {
+        paquetes_a_zona_5=paquetes_a_zona_5+1;
+        total_a_zona_5=total_a_zona_5+costo_por_el_servicio;
+    }
+    document.formulario1.costo_por_el_servicio.value = costo_por_el_servicio;
+    document.formulario1.costo_por_Kilos.value = costo_por_Kilos;
+}
+ // el java scrip
+        </script>
+    </head>
+    <body>
+        <form name="formulario1">
+            <table style="text-align: left; margin-left: auto; margin-right: auto;">
+                <tbody>
+                    <tr>
+                        <td>
+                            <label for="peso_en_Kiloss">Ingresa el valor de peso en Kilos:</label>
+                        </td>
+                        <td>
+                            <input name="peso_en_Kiloss" required="required" step="1" type="number" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label for="zona">Selecciona el valor de zona:</label>
+                        </td>
+                        <td>
+                            <select name="zona" required="required">
+                                <option value="1">Guatemala</option>
+                                <option value="2">Izabal</option>
+                                <option value="3">Peten</option>
+                                <option value="4">Chiqumula</option>
+                                <option value="5">Retalhuleu</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr align="center">
+                        <td colspan="2" rowspan="1">
+                            <input value="Procesar" type="button" onclick="algoritmo();" />
+                            <input type="reset" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label for="costo_por_el_servicio">Valor de costo por el servicio:</label>
+                        </td>
+                        <td>
+                            <input name="costo_por_el_servicio" step="1" type="number" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label for="costo_por_Kilos">Valor de costo por Kilos:</label>
+                        </td>
+                        <td>
+                            <input name="costo_por_Kilos" step="1" type="number" />
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </form>
+    </body>
+</html>
+
